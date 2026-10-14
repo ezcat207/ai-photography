@@ -25,14 +25,18 @@ def main():
     shutil.copy(os.path.join(SRC, "index.html"), os.path.join(OUT, "index.html"))
     shutil.copy(os.path.join(ROOT, "introduction.md"), os.path.join(OUT, "introduction.md"))
 
-    for fn in sorted(os.listdir(os.path.join(ROOT, "chapters"))):
-        if not fn.endswith(".md") or fn == "image-prompts.md":
-            continue
-        src = os.path.join(ROOT, "chapters", fn)
-        s = open(src, encoding="utf-8").read()
-        s = s.replace("../images/", "images/")  # site-root-relative
-        open(os.path.join(OUT, "chapters", fn), "w", encoding="utf-8").write(s)
-        print("  md", fn)
+    for root, _, fns in os.walk(os.path.join(ROOT, "chapters")):
+        for fn in sorted(fns):
+            if not fn.endswith(".md") or fn == "image-prompts.md":
+                continue
+            src = os.path.join(root, fn)
+            rel = os.path.relpath(src, os.path.join(ROOT, "chapters"))
+            dst = os.path.join(OUT, "chapters", rel)
+            os.makedirs(os.path.dirname(dst), exist_ok=True)
+            s = open(src, encoding="utf-8").read()
+            s = s.replace("../images/", "images/")  # site-root-relative
+            open(dst, "w", encoding="utf-8").write(s)
+            print("  md", rel)
 
     for fn in sorted(os.listdir(os.path.join(ROOT, "images"))):
         shutil.copy(os.path.join(ROOT, "images", fn), os.path.join(OUT, "images", fn))
