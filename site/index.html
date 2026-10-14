@@ -1,0 +1,264 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>AI 摄影师：用文字拍照 · AI Photographer</title>
+<style>
+:root{--bg:#fff8f0;--card:#fff;--ink:#3a2e22;--muted:#8a7a68;--accent:#e8833a;--accent2:#2e9e6b;--line:#f0e2d0}
+*{box-sizing:border-box}body{font-family:-apple-system,"PingFang SC","Microsoft YaHei",system-ui,sans-serif;background:var(--bg);color:var(--ink);margin:0;line-height:1.75}
+nav{position:sticky;top:0;z-index:10;background:rgba(255,248,240,.95);backdrop-filter:blur(6px);border-bottom:1px solid var(--line);padding:.6rem 1rem;display:flex;justify-content:space-between;align-items:center}
+nav .brand{font-weight:800;cursor:pointer}
+.lang{display:flex;border:1px solid var(--line);border-radius:999px;overflow:hidden}
+.lang button{border:0;background:transparent;padding:.35rem .9rem;cursor:pointer;font-size:.9rem;color:var(--muted)}
+.lang button.on{background:var(--accent);color:#fff;font-weight:700}
+main{max-width:860px;margin:0 auto;padding:1.2rem 1rem 4rem}
+.hero{text-align:center;padding:2.2rem 1rem}
+.hero h1{font-size:2rem;margin:.4rem 0}
+.hero .en{color:var(--muted);font-size:1rem}
+.badge{display:inline-block;background:#ffe9d2;color:#b35c14;border-radius:999px;padding:.2rem .8rem;font-size:.8rem;margin:.15rem}
+section{margin:2.2rem 0}
+h2.sec{font-size:1.3rem;border-left:5px solid var(--accent);padding-left:.6rem;margin-bottom:1rem}
+.card{background:var(--card);border:1px solid var(--line);border-radius:14px;padding:1.1rem 1.2rem;margin:.8rem 0;box-shadow:0 2px 8px rgba(0,0,0,.04)}
+.prob{display:flex;gap:.7rem;align-items:flex-start;padding:.55rem 0;border-bottom:1px dashed var(--line)}
+.prob:last-child{border:0}.prob .n{background:var(--accent);color:#fff;width:1.6rem;height:1.6rem;border-radius:50%;flex:none;text-align:center;line-height:1.6rem;font-size:.85rem;font-weight:700}
+.chap{display:flex;justify-content:space-between;align-items:center;gap:.8rem;padding:.7rem .2rem;border-bottom:1px dashed var(--line);cursor:pointer}
+.chap:last-child{border:0}.chap:hover .t{color:var(--accent)}
+.chap .t{font-weight:700}.chap .s{color:var(--muted);font-size:.85rem}
+.pill{font-size:.75rem;border-radius:999px;padding:.15rem .6rem;flex:none}
+.pill.ok{background:#dff5e8;color:#1e7a4c}.pill.todo{background:#f3ede4;color:var(--muted)}
+.grid2{display:grid;grid-template-columns:1fr 1fr;gap:1rem}
+@media(max-width:640px){.grid2{grid-template-columns:1fr}}
+.person{text-align:center}.person .av{font-size:2.6rem}
+.gallery{display:grid;grid-template-columns:1fr 1fr;gap:.8rem}
+@media(max-width:640px){.gallery{grid-template-columns:1fr}}
+.gallery figure{margin:0;background:#fff;border:1px solid var(--line);border-radius:12px;overflow:hidden}
+.gallery img{width:100%;display:block}
+.gallery figcaption{padding:.5rem .8rem;font-size:.85rem;color:var(--muted)}
+footer{text-align:center;color:var(--muted);font-size:.85rem;margin-top:3rem}
+#view-reader .toolbar{display:flex;gap:.6rem;align-items:center;margin-bottom:1rem;flex-wrap:wrap}
+.btn{border:1px solid var(--line);background:#fff;border-radius:999px;padding:.4rem 1rem;cursor:pointer;font-size:.9rem}
+.btn:hover{border-color:var(--accent);color:var(--accent)}
+.btn.primary{background:var(--accent);color:#fff;border-color:var(--accent)}
+.btn:disabled{opacity:.4;cursor:default}
+article{background:#fff;border:1px solid var(--line);border-radius:14px;padding:1.6rem 1.4rem;box-shadow:0 2px 8px rgba(0,0,0,.04)}
+article img{max-width:100%;border-radius:10px;margin:.8rem 0}
+article h1{font-size:1.5rem}article h2{font-size:1.25rem;margin-top:1.6rem;border-left:4px solid var(--accent);padding-left:.5rem}
+article h3{font-size:1.1rem}article blockquote{border-left:4px solid var(--accent2);margin:1rem 0;padding:.4rem 1rem;background:#f4faf6;border-radius:0 8px 8px 0;color:#4a5a50}
+article pre{background:#2b2b2b;color:#f8f8f2;border-radius:10px;padding:1rem;overflow-x:auto}
+article code{background:#f6ecdd;border-radius:4px;padding:.1rem .35rem;font-size:.9em}
+article pre code{background:transparent;padding:0}
+article ul,article ol{padding-left:1.4rem}
+article li{margin:.3rem 0}article hr{border:0;border-top:1px solid var(--line);margin:1.5rem 0}
+.notice{background:#fff7e8;border:1px solid #f0d9a8;border-radius:12px;padding:1.4rem;text-align:center}
+.pagenav{display:flex;justify-content:space-between;margin-top:1.2rem;gap:.6rem}
+</style>
+</head>
+<body>
+<nav>
+  <div class="brand" id="brand">📷 AI 摄影师：用文字拍照</div>
+  <div class="lang"><button id="btn-zh" class="on">中文</button><button id="btn-en">EN</button></div>
+</nav>
+<main>
+  <div id="view-home">
+    <div class="hero">
+      <div><span class="badge" id="b1"></span><span class="badge" id="b2"></span><span class="badge" id="b3"></span></div>
+      <h1 id="hero-title"></h1>
+      <div class="en" id="hero-en"></div>
+      <p id="hero-sub" style="color:var(--muted)"></p>
+    </div>
+    <section><h2 class="sec" id="t-prob"></h2><div class="card" id="problems"></div></section>
+    <section><h2 class="sec" id="t-toc"></h2><div class="card" id="toc" style="padding:.4rem 1.2rem"></div></section>
+    <section><h2 class="sec" id="t-chars"></h2><div class="grid2" id="chars"></div></section>
+    <section><h2 class="sec" id="t-gallery"></h2><div class="gallery" id="gallery"></div></section>
+    <section><h2 class="sec" id="t-hw"></h2><div class="card" id="homework"></div></section>
+    <footer id="foot"></footer>
+  </div>
+  <div id="view-reader" hidden>
+    <div class="toolbar">
+      <button class="btn" id="back">← <span id="back-t"></span></button>
+      <span style="flex:1"></span>
+      <button class="btn" id="prev"></button>
+      <button class="btn" id="next"></button>
+    </div>
+    <div id="reader-body"></div>
+    <div class="pagenav">
+      <button class="btn" id="prev2"></button>
+      <button class="btn" id="next2"></button>
+    </div>
+  </div>
+</main>
+<script>
+/* ---------------- i18n ---------------- */
+const T = {
+zh:{
+  brand:"📷 AI 摄影师：用文字拍照", b1:"给 13+ 的 AI 摄影第一课", b2:"传统摄影 × AI 提示词", b3:"每章配图 · 每章填空题",
+  heroT:"AI 摄影师：用文字拍照", heroEN:"AI Photographer: Taking Photos with Words",
+  heroSub:"先学传统摄影的 8 个核心概念（光圈/快门/ISO/焦段/角度/构图/光线/色彩），再把每个概念翻译成一句能指挥 AI 的话。",
+  tProb:"🧱 先看问题墙：10 个真实翻车",
+  tToc:"📖 目录（点进去直接读全文）", tChars:"👥 书里的人", tGal:"🎨 插图", tHw:"📝 每章作业：填空题",
+  probs:["为什么 AI 总画不对我要的？","我说\"傍晚\"，它给了我一个正午","手怎么画出了六根手指？","招牌上的字全是乱码","我要动漫，它给了我照片","\"背景虚化\"到底该怎么跟 AI 说？","逆光、侧光，AI 听得懂吗？","光圈快门这些词，跟 AI 有什么关系？","我想让照片\"暖\"一点，该说什么词？","提示词写了一大段，AI 全忽略了"],
+  chars:[
+    {av:"🧑‍💻",n:"郑大钱",d:"28 岁，摄影零基础。妈妈住院后，他想\"拍\"一张她没去过的旅行照——快门都没按过，只有手机和一个 AI。"},
+    {av:"👩‍💻",n:"Penny（英文版主角）",d:"和郑大钱同一个灵魂，美国版：28 岁，从没摸过相机。想用\"文字\"给妈妈拍一张她没去过的地方，不用镜头。"}],
+  homework:"<b>填空题</b>：下划线填上<b>你感兴趣的东西</b>（猫、球鞋、游戏角色……），填完就是一句完整提示词。<b>明天交一张图</b> + 填好的句子，课上先看图再开新章。",
+  foot:"《AI 摄影师：用文字拍照》· AI Photographer · 在 GitHub 上开源写作",
+  back:"目录", done:"已写", soon:"待写",
+  noZhT:"这一章还没写", noZhD:"中文版还在写作中，敬请期待。",
+  noEnT:"英文版还没写完", noEnD:"这一章的英文版还在路上，先看中文版？", noEnBtn:"看中文版",
+  prev:"← 上一章", next:"下一章 →",
+  gal:[["images/intro-golden-noodles.webp","引言：黄金时刻的面摊"],["images/intro-neon-noodles.webp","引言：霓虹深夜的面摊"],["images/ch01-skateboarder.webp","第 1 章：滑板少年，黄昏腾空"]]
+},
+en:{
+  brand:"📷 AI Photographer", b1:"AI photography 101 for ages 13+", b2:"Classic photography × AI prompts", b3:"Illustrated · fill-in-the-blank homework",
+  heroT:"AI Photographer: Taking Photos with Words", heroEN:"AI 摄影师：用文字拍照",
+  heroSub:"Learn the 8 core concepts of classic photography first (aperture/shutter/ISO/focal length/angle/composition/light/color), then translate each into a prompt that directs AI.",
+  tProb:"🧱 The Wall of Problems: 10 real face-plants",
+  tToc:"📖 Contents (tap to read the full chapter)", tChars:"👥 The people", tGal:"🎨 Illustrations", tHw:"📝 Homework: fill in the blanks",
+  probs:["Why does the AI never draw what I want?","I said \"dusk\", it gave me noon","Why does the hand have six fingers?","The sign text is total gibberish","I wanted anime, it gave me a photo","How do I even say \"blurred background\" to an AI?","Does the AI understand backlight and side light?","What do aperture and shutter have to do with AI?","I want the photo warmer — what words do I use?","I wrote a whole paragraph of prompt and the AI ignored all of it"],
+  chars:[
+    {av:"🧑‍💻",n:"Zheng Daqian",d:"28, zero photography background. After his mom was hospitalized, he wants to \"take\" a travel photo of somewhere she never visited — never pressed a shutter, just a phone and an AI."},
+    {av:"👩‍💻",n:"Penny (English edition)",d:"The same soul, American edition: 28, has never touched a camera. She wants to \"take\" a photo of somewhere her mom never visited — with words, not a lens."}],
+  homework:"<b>Fill in the blanks</b>: fill them with <b>whatever you care about</b> (your cat, your sneakers, your game character…), and the filled sentence is a complete prompt. <b>Turn in one image tomorrow</b> + your sentence; class starts with the photos.",
+  foot:"AI Photographer: Taking Photos with Words · written in the open on GitHub",
+  back:"Contents", done:"Published", soon:"Coming soon",
+  noZhT:"Not written yet", noZhD:"This chapter is still being written. Stay tuned.",
+  noEnT:"English version not ready yet", noEnD:"This chapter's English version is on its way. Read the Chinese version meanwhile?", noEnBtn:"Read Chinese version",
+  prev:"← Prev", next:"Next →",
+  gal:[["images/intro-golden-noodles.webp","Intro: noodle stall at golden hour"],["images/intro-neon-noodles.webp","Intro: noodle stall on a neon night"],["images/ch01-skateboarder.webp","Ch. 1: skateboarder frozen at dusk"]]
+}};
+const CHAPTERS=[
+ {id:"intro",zhT:"引言：先尝一口",enT:"Introduction: Taste First",zh:"introduction.md",en:""},
+ {id:"00",zhT:"第 0 章 问题墙：为什么 AI 总画不对我要的？",enT:"Ch. 0 — Wall of Problems",zh:"",en:""},
+ {id:"01",zhT:"第 1 章：一张照片，八个决定",enT:"Ch. 1 — One Photo, Eight Decisions",zh:"chapters/01-eight-decisions.md",en:""},
+ {id:"02",zhT:"第 2 章 光圈：背景虚化",enT:"Ch. 2 — Aperture",zh:"",en:""},
+ {id:"03",zhT:"第 3 章 快门：凝固与流动",enT:"Ch. 3 — Shutter",zh:"",en:""},
+ {id:"04",zhT:"第 4 章 ISO 与夜景：天黑了怎么办",enT:"Ch. 4 — ISO & Night",zh:"",en:""},
+ {id:"05",zhT:"第 5 章 焦段：站多远，看多“挤”",enT:"Ch. 5 — Focal Length",zh:"",en:""},
+ {id:"06",zhT:"第 6 章 角度：蹲下还是举高",enT:"Ch. 6 — Camera Angle",zh:"",en:""},
+ {id:"07",zhT:"第 7 章 构图：东西放哪",enT:"Ch. 7 — Composition",zh:"",en:""},
+ {id:"08",zhT:"第 8 章 光线：太阳站在哪",enT:"Ch. 8 — Light",zh:"",en:""},
+ {id:"09",zhT:"第 9 章 色彩：暖还是冷",enT:"Ch. 9 — Color",zh:"",en:""},
+ {id:"10",zhT:"第 10 章 翻车现场：12 个问题集中修",enT:"Ch. 10 — Bloopers",zh:"",en:""},
+ {id:"11",zhT:"第 11 章 毕业作品：我的代表作",enT:"Ch. 11 — Final Project",zh:"",en:""},
+ {id:"pa",zhT:"附录 A 万能句式卡",enT:"Appendix A — Prompt Cheat Sheet",zh:"",en:""},
+ {id:"pb",zhT:"附录 B 中英提示词对照表",enT:"Appendix B — CN–EN Glossary",zh:"",en:""},
+ {id:"pc",zhT:"附录 C 工具对照表",enT:"Appendix C — Tool Comparison",zh:"",en:""}
+];
+let lang = "zh";
+const $ = id => document.getElementById(id);
+
+/* ---------------- markdown parser ---------------- */
+function esc(s){return s.replace(/&/g,"&amp;").replace(/</g,"&lt;").replace(/>/g,"&gt;");}
+function inline(s){
+  s = esc(s);
+  s = s.replace(/!\[([^\]]*)\]\(([^)]+)\)/g,'<img src="'+encodeURI("$2")+'" alt="$1">');
+  s = s.replace(/\[([^\]]+)\]\(([^)]+)\)/g,'<a href="$2">$1</a>');
+  s = s.replace(/\*\*([^*]+)\*\*/g,"<strong>$1</strong>");
+  s = s.replace(/(^|[^*])\*([^*\n]+)\*/g,"$1<em>$2</em>");
+  s = s.replace(/`([^`]+)`/g,"<code>$1</code>");
+  return s;
+}
+function parseMarkdown(md){
+  const lines = md.split("\n"); let html="", i=0, inCode=false, buf=[], stack=[];
+  const close=function(){while(stack.length) html += stack.pop()==="ul" ? "</ul>" : "</ol>";};
+  while(i<lines.length){
+    const line = lines[i];
+    if(line.indexOf("```")===0){
+      if(!inCode){inCode=true;buf=[];} else {inCode=false; html+="<pre><code>"+esc(buf.join("\n"))+"</code></pre>";}
+      i++; continue;
+    }
+    if(inCode){buf.push(line); i++; continue;}
+    const t = line.trim(); let m;
+    if(!t){close(); i++; continue;}
+    if(t.indexOf("### ")===0){close(); html+="<h3>"+inline(t.slice(4))+"</h3>";}
+    else if(t.indexOf("## ")===0){close(); html+="<h2>"+inline(t.slice(3))+"</h2>";}
+    else if(t.indexOf("# ")===0){close(); html+="<h1>"+inline(t.slice(2))+"</h1>";}
+    else if(t==="---"){close(); html+="<hr>";}
+    else if(t.indexOf("> ")===0){close(); html+="<blockquote>"+inline(t.slice(2))+"</blockquote>";}
+    else if(m=t.match(/^(\d+)\.\s+(.*)/)){ if(stack[stack.length-1]!=="ol"){close(); html+="<ol>"; stack.push("ol");} html+="<li>"+inline(m[2])+"</li>";}
+    else if(m=t.match(/^[-*]\s+(.*)/)){ if(stack[stack.length-1]!=="ul"){close(); html+="<ul>"; stack.push("ul");} html+="<li>"+inline(m[1])+"</li>";}
+    else {close(); html+="<p>"+inline(t)+"</p>";}
+    i++;
+  }
+  close(); return html;
+}
+
+/* ---------------- views ---------------- */
+function titleOf(c){ return lang==="zh" ? c.zhT : c.enT; }
+function fileOf(c){ return lang==="zh" ? c.zh : c.en; }
+
+function renderHome(){
+  const t = T[lang];
+  document.documentElement.lang = lang==="zh" ? "zh-CN" : "en";
+  document.title = lang==="zh" ? "AI 摄影师：用文字拍照" : "AI Photographer: Taking Photos with Words";
+  $("brand").textContent = t.brand;
+  $("btn-zh").className = lang==="zh" ? "on" : ""; $("btn-en").className = lang==="en" ? "on" : "";
+  $("b1").textContent=t.b1; $("b2").textContent=t.b2; $("b3").textContent=t.b3;
+  $("hero-title").textContent=t.heroT; $("hero-en").textContent=t.heroEN; $("hero-sub").textContent=t.heroSub;
+  $("t-prob").textContent=t.tProb; $("t-toc").textContent=t.tToc; $("t-chars").textContent=t.tChars;
+  $("t-gallery").textContent=t.tGal; $("t-hw").textContent=t.tHw;
+  $("problems").innerHTML = t.probs.map(function(p,i){return '<div class="prob"><div class="n">'+(i+1)+'</div><div>'+p+'</div></div>';}).join("");
+  $("toc").innerHTML = CHAPTERS.map(function(c){
+    const ok = !!fileOf(c);
+    return '<div class="chap" data-id="'+c.id+'"><div class="t">'+titleOf(c)+'</div>'+
+      '<span class="pill '+(ok?"ok":"todo")+'">'+(ok?t.done:t.soon)+'</span></div>';
+  }).join("");
+  Array.prototype.forEach.call(document.querySelectorAll(".chap"),function(el){el.onclick=function(){openChapter(el.dataset.id);};});
+  $("chars").innerHTML = t.chars.map(function(c){return '<div class="card person"><div class="av">'+c.av+'</div><b>'+c.n+'</b><p style="color:var(--muted);font-size:.9rem">'+c.d+'</p></div>';}).join("");
+  $("gallery").innerHTML = t.gal.map(function(g){return '<figure><img loading="lazy" src="'+encodeURI(g[0])+'" alt=""><figcaption>'+g[1]+'</figcaption></figure>';}).join("");
+  $("homework").innerHTML = t.homework;
+  $("foot").textContent = t.foot;
+  $("view-home").hidden=false; $("view-reader").hidden=true;
+  window.scrollTo(0,0);
+}
+async function openChapter(id){
+  const c = CHAPTERS.find(function(x){return x.id===id;}); if(!c) return;
+  const t = T[lang];
+  $("view-home").hidden=true; $("view-reader").hidden=false;
+  $("back-t").textContent=t.back; $("prev").textContent=t.prev; $("next").textContent=t.next;
+  $("prev2").textContent=t.prev; $("next2").textContent=t.next;
+  const idx = CHAPTERS.indexOf(c);
+  const go = function(d){ const n = CHAPTERS[idx+d]; if(n) openChapter(n.id); };
+  $("prev").onclick=function(){go(-1);}; $("prev2").onclick=function(){go(-1);};
+  $("next").onclick=function(){go(1);}; $("next2").onclick=function(){go(1);};
+  $("prev").disabled=$("prev2").disabled = idx===0;
+  $("next").disabled=$("next2").disabled = idx===CHAPTERS.length-1;
+  const body = $("reader-body");
+  const f = fileOf(c);
+  if(!f){
+    const otherF = lang==="zh" ? c.en : c.zh;
+    body.innerHTML = '<div class="notice"><h3>'+(lang==="zh"?t.noZhT:t.noEnT)+'</h3><p>'+(lang==="zh"?t.noZhD:t.noEnD)+'</p>'+
+      (otherF ? '<p><button class="btn primary" id="otherLang">'+(lang==="zh"?t.noEnBtn:"Read Chinese version")+'</button></p>' : '')+'</div>';
+    const b = $("otherLang");
+    if(b) b.onclick=function(){ setLang(lang==="zh"?"en":"zh"); };
+    location.hash = "c="+id; window.scrollTo(0,0); return;
+  }
+  body.innerHTML = '<div class="card">loading…</div>';
+  try{
+    const r = await fetch(encodeURI(f));
+    if(!r.ok) throw 0;
+    const md = await r.text();
+    body.innerHTML = "<article>"+parseMarkdown(md)+"</article>";
+  }catch(e){
+    body.innerHTML = '<div class="notice"><h3>⚠️</h3><p>'+f+'</p></div>';
+  }
+  location.hash = "c="+id; window.scrollTo(0,0);
+}
+function setLang(l){
+  lang=l; renderHome();
+  const h=location.hash;
+  if(h.indexOf("#c=")===0) openChapter(h.slice(3));
+}
+$("btn-zh").onclick=function(){setLang("zh");};
+$("btn-en").onclick=function(){setLang("en");};
+$("brand").onclick=function(){location.hash=""; renderHome();};
+$("back").onclick=function(){location.hash=""; renderHome();};
+(function init(){
+  renderHome();
+  const h=location.hash;
+  if(h.indexOf("#c=")===0) openChapter(h.slice(3));
+})();
+</script>
+</body>
+</html>
