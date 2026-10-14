@@ -23,9 +23,10 @@ A zero-to-one AI photography tutorial for ages 13+. Learn the 8 core concepts of
 - [引言：先尝一口](introduction.md)
 - [大纲](outline.md)
 - [第 1 章：一张照片，八个决定](chapters/01-eight-decisions.md)
-- 第 2–11 章：编写中（见大纲）
+- [第 0 章](chapters/00-wall.md) / [第 2–11 章](outline.md)：已完稿
+- [附录 A/B/C](outline.md)：已完稿
 - [配图 Prompt（中英双语）](chapters/image-prompts.md)
 
 ## 状态
 
-🚧 写作中：第 1 章 + 引言已完稿，其余章节待写。
+✅ 全书完稿：引言 + 第 0–11 章 + 附录 A/B/C，共 14 张配图。

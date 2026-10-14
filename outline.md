@@ -4,21 +4,21 @@
 
 | 章 | 中文标题 | English Title | 一句话 | 状态 |
 |----|----------|---------------|--------|------|
-| 0 | 问题墙：为什么 AI 总画不对我要的？ | The Wall of Problems: Why Does AI Never Draw What I Want? | 10 个真实翻车，先笑完再学 | 待写 |
+| 0 | 问题墙：为什么 AI 总画不对我要的？ | The Wall of Problems: Why Does AI Never Draw What I Want? | 10 个真实翻车，先笑完再学 | ✅ 已写 |
 | 1 | 一张照片，八个决定 | One Photo, Eight Decisions | 光圈/快门/ISO/焦段/角度/构图/光线/色彩，一张图全讲透 | ✅ 已写 |
-| 2 | 光圈：背景虚化 | Aperture: Blurring the Background | 瞳孔的开合，指挥视线 | 待写 |
-| 3 | 快门：凝固与流动 | Shutter: Freezing and Flowing | 眨眼的速度，抓住时间 | 待写 |
-| 4 | ISO 与夜景：天黑了怎么办 | ISO & Night: Shooting in the Dark | 夜视能力的代价是噪点 | 待写 |
-| 5 | 焦段：站多远，看多"挤" | Focal Length: Distance and Compression | 广角大长腿，长焦压空间 | 待写 |
-| 6 | 角度：蹲下还是举高 | Camera Angle: Crouch or Raise | 趴下拍就是"飞"，举高拍脸小 | 待写 |
-| 7 | 构图：东西放哪 | Composition: Where Things Go | 三分法、引导线、框架、留白 | 待写 |
-| 8 | 光线：太阳站在哪 | Light: Where the Sun Stands | 顺光侧光逆光，黄金时刻约拍 | 待写 |
-| 9 | 色彩：暖还是冷 | Color: Warm or Cold | 先定温度，再讲故事 | 待写 |
-| 10 | 翻车现场：12 个真实问题集中修 | Bloopers: 12 Real Fails, Fixed Together | 症状→病因→自查→解法→预防 | 待写 |
-| 11 | 毕业作品：我的代表作 | Final Project: My Masterpiece | 8 个决定全用上，交一张图 | 待写 |
-| 附录 A | 万能句式卡 | Prompt Cheat Sheet | 一页纸打印版 | 待写 |
-| 附录 B | 中英提示词对照表 | CN–EN Prompt Glossary | 机位/光线/风格词库 | 待写 |
-| 附录 C | 工具对照表 | Tool Comparison | 作图工具一览（待定） | 待写 |
+| 2 | 光圈：背景虚化 | Aperture: Blurring the Background | 瞳孔的开合，指挥视线 | ✅ 已写 |
+| 3 | 快门：凝固与流动 | Shutter: Freezing and Flowing | 眨眼的速度，抓住时间 | ✅ 已写 |
+| 4 | ISO 与夜景：天黑了怎么办 | ISO & Night: Shooting in the Dark | 夜视能力的代价是噪点 | ✅ 已写 |
+| 5 | 焦段：站多远，看多"挤" | Focal Length: Distance and Compression | 广角大长腿，长焦压空间 | ✅ 已写 |
+| 6 | 角度：蹲下还是举高 | Camera Angle: Crouch or Raise | 趴下拍就是"飞"，举高拍脸小 | ✅ 已写 |
+| 7 | 构图：东西放哪 | Composition: Where Things Go | 三分法、引导线、框架、留白 | ✅ 已写 |
+| 8 | 光线：太阳站在哪 | Light: Where the Sun Stands | 顺光侧光逆光，黄金时刻约拍 | ✅ 已写 |
+| 9 | 色彩：暖还是冷 | Color: Warm or Cold | 先定温度，再讲故事 | ✅ 已写 |
+| 10 | 翻车现场：12 个真实问题集中修 | Bloopers: 12 Real Fails, Fixed Together | 症状→病因→自查→解法→预防 | ✅ 已写 |
+| 11 | 毕业作品：我的代表作 | Final Project: My Masterpiece | 8 个决定全用上，交一张图 | ✅ 已写 |
+| 附录 A | 万能句式卡 | Prompt Cheat Sheet | 一页纸打印版 | ✅ 已写 |
+| 附录 B | 中英提示词对照表 | CN–EN Prompt Glossary | 机位/光线/风格词库 | ✅ 已写 |
+| 附录 C | 工具对照表 | Tool Comparison | 作图工具一览（待定） | ✅ 已写 |
 
 ## 每章固定结构
 
@@ -31,7 +31,7 @@
 ## 配图计划
 
 每章 1–2 张主图，prompt 中英双语，见 [chapters/image-prompts.md](chapters/image-prompts.md)。
-已生成 3 张（引言 2 张 + 第 1 章 1 张），其余为 shot list 草稿（待生成）。
+14 张全部已生成（引言 2 张 + 第 0–11 章各 1 张）。
 
 ## 填空题作业格式（全书统一）
 
