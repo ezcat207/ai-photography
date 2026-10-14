@@ -38,6 +38,9 @@ def main():
         shutil.copy(os.path.join(ROOT, "images", fn), os.path.join(OUT, "images", fn))
         print("  img", fn)
 
+    # disable Jekyll so raw .md files are served (the reader fetches them)
+    open(os.path.join(OUT, ".nojekyll"), "w").write("")
+
     print("site built:", OUT)
 
 
