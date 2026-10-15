@@ -69,6 +69,7 @@ article li{margin:.3rem 0}article hr{border:0;border-top:1px solid var(--line);m
     </div>
     <section><h2 class="sec" id="t-prob"></h2><div class="card" id="problems"></div></section>
     <section><h2 class="sec" id="t-toc"></h2><div class="card" id="toc" style="padding:.4rem 1.2rem"></div></section>
+    <section><h2 class="sec" id="t-book2"></h2><div class="card" id="book2"></div></section>
     <section><h2 class="sec" id="t-chars"></h2><div class="grid2" id="chars"></div></section>
     <section><h2 class="sec" id="t-gallery"></h2><div class="gallery" id="gallery"></div></section>
     <section><h2 class="sec" id="t-hw"></h2><div class="card" id="homework"></div></section>
@@ -96,7 +97,7 @@ zh:{
   heroT:"AI 摄影师：用文字拍照", heroEN:"AI Photographer: Taking Photos with Words",
   heroSub:"先学传统摄影的 8 个核心概念（光圈/快门/ISO/焦段/角度/构图/光线/色彩），再把每个概念翻译成一句能指挥 AI 的话。",
   tProb:"🧱 先看问题墙：10 个真实翻车",
-  tToc:"📖 目录（点进去直接读全文）", tChars:"👥 书里的人", tGal:"🎨 插图", tHw:"📝 每章作业：填空题",
+  tToc:"📖 目录（点进去直接读全文）", tChars:"👥 书里的人", tGal:"🎨 插图", tHw:"📝 每章作业：填空题", tBook2:"🎬 第二部：《AI 导演：用文字拍电影》",
   probs:["为什么 AI 总画不对我要的？","我说\"傍晚\"，它给了我一个正午","手怎么画出了六根手指？","招牌上的字全是乱码","我要动漫，它给了我照片","\"背景虚化\"到底该怎么跟 AI 说？","逆光、侧光，AI 听得懂吗？","光圈快门这些词，跟 AI 有什么关系？","我想让照片\"暖\"一点，该说什么词？","提示词写了一大段，AI 全忽略了"],
   chars:[
     {av:"🧑‍💻",n:"郑大钱",d:"28 岁，摄影零基础。妈妈住院后，他想\"拍\"一张她没去过的旅行照——快门都没按过，只有手机和一个 AI。"},
@@ -104,6 +105,7 @@ zh:{
   homework:"<b>填空题</b>：下划线填上<b>你感兴趣的东西</b>（猫、球鞋、游戏角色……），填完就是一句完整提示词。<b>明天交一张图</b> + 填好的句子，课上先看图再开新章。",
   foot:"《AI 摄影师：用文字拍照》· AI Photographer · 在 GitHub 上开源写作",
   back:"目录", done:"已写", soon:"待写",
+  book2:'学完了 8 个决定？第二部《AI 导演：用文字拍电影》教你把照片连成片：运镜 / 节奏 / 转场 / 声音 / 故事 / 一致性 / 分镜 → <a href="https://ezcat207.github.io/ai-video/">第二部阅读站</a>',
   noZhT:"这一章还没写", noZhD:"中文版还在写作中，敬请期待。",
   noEnT:"英文版还没写完", noEnD:"这一章的英文版还在路上，先看中文版？", noEnBtn:"看中文版",
   prev:"← 上一章", next:"下一章 →",
@@ -114,7 +116,7 @@ en:{
   heroT:"AI Photographer: Taking Photos with Words", heroEN:"AI 摄影师：用文字拍照",
   heroSub:"Learn the 8 core concepts of classic photography first (aperture/shutter/ISO/focal length/angle/composition/light/color), then translate each into a prompt that directs AI.",
   tProb:"🧱 The Wall of Problems: 10 real face-plants",
-  tToc:"📖 Contents (tap to read the full chapter)", tChars:"👥 The people", tGal:"🎨 Illustrations", tHw:"📝 Homework: fill in the blanks",
+  tToc:"📖 Contents (tap to read the full chapter)", tChars:"👥 The people", tGal:"🎨 Illustrations", tHw:"📝 Homework: fill in the blanks", tBook2:"🎬 Part Two: AI Director",
   probs:["Why does the AI never draw what I want?","I said \"dusk\", it gave me noon","Why does the hand have six fingers?","The sign text is total gibberish","I wanted anime, it gave me a photo","How do I even say \"blurred background\" to an AI?","Does the AI understand backlight and side light?","What do aperture and shutter have to do with AI?","I want the photo warmer — what words do I use?","I wrote a whole paragraph of prompt and the AI ignored all of it"],
   chars:[
     {av:"🧑‍💻",n:"Zheng Daqian",d:"28, zero photography background. After his mom was hospitalized, he wants to \"take\" a travel photo of somewhere she never visited — never pressed a shutter, just a phone and an AI."},
@@ -122,6 +124,7 @@ en:{
   homework:"<b>Fill in the blanks</b>: fill them with <b>whatever you care about</b> (your cat, your sneakers, your game character…), and the filled sentence is a complete prompt. <b>Turn in one image tomorrow</b> + your sentence; class starts with the photos.",
   foot:"AI Photographer: Taking Photos with Words · written in the open on GitHub",
   back:"Contents", done:"Published", soon:"Coming soon",
+  book2:'Mastered the 8 decisions? Part Two, <i>AI Director: Shooting Films with Words</i>, turns photos into film: movement / pacing / transitions / sound / story / consistency / storyboard → <a href="https://ezcat207.github.io/ai-video/">Part Two reader</a>',
   noZhT:"Not written yet", noZhD:"This chapter is still being written. Stay tuned.",
   noEnT:"English version not ready yet", noEnD:"This chapter's English version is on its way. Read the Chinese version meanwhile?", noEnBtn:"Read Chinese version",
   prev:"← Prev", next:"Next →",
@@ -197,7 +200,7 @@ function renderHome(){
   $("b1").textContent=t.b1; $("b2").textContent=t.b2; $("b3").textContent=t.b3;
   $("hero-title").textContent=t.heroT; $("hero-en").textContent=t.heroEN; $("hero-sub").textContent=t.heroSub;
   $("t-prob").textContent=t.tProb; $("t-toc").textContent=t.tToc; $("t-chars").textContent=t.tChars;
-  $("t-gallery").textContent=t.tGal; $("t-hw").textContent=t.tHw;
+  $("t-gallery").textContent=t.tGal; $("t-hw").textContent=t.tHw; $("t-book2").textContent=t.tBook2;
   $("problems").innerHTML = t.probs.map(function(p,i){return '<div class="prob"><div class="n">'+(i+1)+'</div><div>'+p+'</div></div>';}).join("");
   $("toc").innerHTML = CHAPTERS.map(function(c){
     const ok = !!fileOf(c);
@@ -208,6 +211,7 @@ function renderHome(){
   $("chars").innerHTML = t.chars.map(function(c){return '<div class="card person"><div class="av">'+c.av+'</div><b>'+c.n+'</b><p style="color:var(--muted);font-size:.9rem">'+c.d+'</p></div>';}).join("");
   $("gallery").innerHTML = t.gal.map(function(g){return '<figure><img loading="lazy" src="'+encodeURI(g[0])+'" alt=""><figcaption>'+g[1]+'</figcaption></figure>';}).join("");
   $("homework").innerHTML = t.homework;
+  $("book2").innerHTML = t.book2;
   $("foot").textContent = t.foot;
   $("view-home").hidden=false; $("view-reader").hidden=true;
   window.scrollTo(0,0);
