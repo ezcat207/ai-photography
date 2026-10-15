@@ -21,11 +21,23 @@ A zero-to-one AI photography tutorial for ages 13+. Learn the 8 core concepts of
 ## 目录
 
 - [引言：先尝一口](introduction.md)
-- [大纲](outline.md)
+- [第 0 章：一面问题墙](chapters/00-wall.md)
 - [第 1 章：一张照片，八个决定](chapters/01-eight-decisions.md)
-- [第 0 章](chapters/00-wall.md) / [第 2–11 章](outline.md)：已完稿
-- [附录 A/B/C](outline.md)：已完稿
+- [第 2 章：光圈——背景虚化](chapters/02-aperture.md)
+- [第 3 章：快门——凝固与流动](chapters/03-shutter.md)
+- [第 4 章：ISO 与夜景——天黑了怎么办](chapters/04-iso-night.md)
+- [第 5 章：焦段——站多远，看多"挤"](chapters/05-focal-length.md)
+- [第 6 章：角度——蹲下还是举高](chapters/06-angle.md)
+- [第 7 章：构图——东西放哪](chapters/07-composition.md)
+- [第 8 章：光线——太阳站在哪](chapters/08-light.md)
+- [第 9 章：色彩——暖还是冷](chapters/09-color.md)
+- [第 10 章：翻车现场——12 个问题集中修](chapters/10-bloopers.md)
+- [第 11 章：毕业作品——我的代表作](chapters/11-final.md)
+- [附录 A：万能句式卡](chapters/appendix-a-cheatsheet.md)
+- [附录 B：中英提示词对照表](chapters/appendix-b-glossary.md)
+- [附录 C：工具对照表](chapters/appendix-c-tools.md)
 - [配图 Prompt（中英双语）](chapters/image-prompts.md)
+- 英文版：第 0–11 章 + 附录 A/B/C 在 [chapters/en/](chapters/en/) 目录
 
 ## 状态
 
